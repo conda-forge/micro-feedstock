@@ -1,14 +1,14 @@
-copy "%RECIPE_DIR%\build.sh" .
-if %errorlevel% neq 0 exit /b %errorlevel%
+@echo on
 
-set PREFIX=%PREFIX:\=/%
-set SRC_DIR=%SRC_DIR:\=/%
-set MSYSTEM=MINGW%ARCH%
-set MSYS2_PATH_TYPE=inherit
-set CHERE_INVOKING=1
+go build -buildmode=pie -trimpath -o=%LIBRARY_PREFIX%/bin\%PKG_NAME%.exe ^
+    -ldflags="-s -w -X github.com/zyedidia/micro/v2/internal/util.Version=%PKG_VERSION%" ^
+    .\cmd\micro || goto :error
+make test || goto :error
 
+go-licenses save .\cmd\micro\ --save_path=license-files || goto :error
 
-bash -lc "./build.sh"
-if %errorlevel% neq 0 exit /b %errorlevel%
+goto :EOF
 
-exit /b 0
+:error
+echo Failed with error #%errorlevel%.
+exit 1
