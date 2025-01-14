@@ -12,12 +12,11 @@ source:
   # sha256: 40177579beb3846461036387b649c629395584a4bbe970f61ba7591bd9c0185a
 
 build:
-  skip: true  # [not linux]
-  number: 0
+  number: 1
 
 requirements:
   build:
-    - {{ compiler('go') }} >=1.19
+    - {{ compiler('go-nocgo') }}
     - go-licenses
     - make
 
