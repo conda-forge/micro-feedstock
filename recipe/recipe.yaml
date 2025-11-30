@@ -10,7 +10,7 @@ source:
   sha256: 40177579beb3846461036387b649c629395584a4bbe970f61ba7591bd9c0185a
 
 build:
-  number: 2
+  number: 3
   dynamic_linking:
     binary_relocation: false
 
