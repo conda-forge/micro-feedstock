@@ -1,5 +1,5 @@
 context:
-  version: 2.0.14
+  version: "2.0.15"
 
 package:
   name: micro
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/zyedidia/micro/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 40177579beb3846461036387b649c629395584a4bbe970f61ba7591bd9c0185a
+  sha256: 612c775321c268c8f9e1767505ff378bca9b9ab66f5c41b69ecb2464ecf15084
 
 build:
-  number: 3
+  number: 0
   dynamic_linking:
     binary_relocation: false
 
